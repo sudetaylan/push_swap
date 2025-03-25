@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   op_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: staylan <staylan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/24 18:55:50 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/25 19:08:47 by staylan          ###   ########.fr       */
+/*   Created: 2025/03/25 19:03:01 by staylan           #+#    #+#             */
+/*   Updated: 2025/03/25 19:03:04 by staylan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
-{
-    t_stack *a;
 
-    a = NULL;
-    if(argc < 2 || argv[1] == NULL)
-        ft_error();
-    else if(argc == 2)//"1 2 3 4 5 6"her bir elemanı alıp stack e yerleştirmek lazım ayrıca alphanumeric control
-    {
-        
-    }
-    else
-        ;//bu durumda direkt index ile değerler alınıp stack e yerleştirilecek
+t_stack	*last_node(t_stack *node)
+{
+	if (!node) //seg faultu önlemek için , boş liste durumu
+		return (NULL);
+	while (node->next) // sonraki bulunmayana kadar yani sonuncuya kadar geç
+		node = node->next;
+	return(node); // sonuncu node u döndür
+}
+int	list_size(t_stack *node)
+{
+	size_t	len;
+
+	len = 0;
+	while(node)
+	{
+		node = node->next;
+		len++;
+	}
+	return (len);
 }

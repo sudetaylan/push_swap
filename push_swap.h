@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: staylan <staylan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/24 18:55:50 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/25 19:08:47 by staylan          ###   ########.fr       */
+/*   Created: 2025/03/24 19:07:49 by staylan           #+#    #+#             */
+/*   Updated: 2025/03/25 17:32:58 by staylan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int main(int argc, char **argv)
+# include <unistd.h>
+# include <stddef.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <stdbool.h>
+
+typedef struct s_stack
 {
-    t_stack *a;
+	long			nbr;
+	long			index;
+	bool			min;//
+	bool			max;//
+	bool			cheapest;//
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}	t_stack;
 
-    a = NULL;
-    if(argc < 2 || argv[1] == NULL)
-        ft_error();
-    else if(argc == 2)//"1 2 3 4 5 6"her bir elemanı alıp stack e yerleştirmek lazım ayrıca alphanumeric control
-    {
-        
-    }
-    else
-        ;//bu durumda direkt index ile değerler alınıp stack e yerleştirilecek
-}
+#endif
