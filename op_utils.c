@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: staylan <staylan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sude <sude@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:03:01 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/25 19:03:04 by staylan          ###   ########.fr       */
+/*   Updated: 2025/03/26 13:31:52 by sude             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,41 @@ int	list_size(t_stack *node)
 		len++;
 	}
 	return (len);
+}
+int	is_duplicated(t_stack *a)
+{
+	t_stack	*tmp;
+
+	while (a)
+	{
+		tmp = a->next;
+		while (tmp)
+		{
+			if (a->nbr == tmp->nbr)
+				return (1);
+			tmp = tmp->next;
+		}
+		a = a->next;
+	}
+	return (0);
+}
+int	is_sorted(t_stack *a)
+{
+	int	i;
+
+	i = a->nbr;
+	while (a)
+	{
+		if (i > a->nbr)
+			return (0);
+		i = a->nbr;
+		a = a->next;
+	}
+	return (1);
+}
+int is_numeric(int c)
+{
+	if (c > 47 && c < 58)
+		return (1);
+	return (0);
 }

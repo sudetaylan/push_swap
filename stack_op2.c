@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_op2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: staylan <staylan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sude <sude@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:03:24 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/25 19:03:28 by staylan          ###   ########.fr       */
+/*   Updated: 2025/03/26 13:48:08 by sude             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,9 @@ void    rra(t_stack **a, int k)
 	if (k == 0)
 		write(1, "rra\n", 4);
 }
-void    rrb(t_stack **b, int k)// sadece b stackinde aynı işlmei yap
-{
+
+void    rrb(t_stack **b, int k) 
+{// sadece b stackinde aynı işlmei yap
 	t_stack	*tmp;
 	int		i;
 
