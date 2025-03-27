@@ -6,7 +6,7 @@
 /*   By: sude <sude@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 19:07:49 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/27 01:46:35 by sude             ###   ########.fr       */
+/*   Updated: 2025/03/27 16:48:00 by sude             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ typedef struct s_stack
 	long			nbr;
 	long			index;
 	int				cost;
-	int				is_max;
-	int				is_min;
 	struct s_stack	*target;
 	struct s_stack	*next;
 }	t_stack;
@@ -60,7 +58,7 @@ int is_numeric(int c);
 
 //push_swap
 t_stack *add_args(int argc ,char **argv);
-t_stack	*ft_sub_process(char **argv);
+t_stack	*add_split(char **argv);
 
 //operations
 void    sa(t_stack **a, int k);

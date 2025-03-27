@@ -6,13 +6,13 @@
 /*   By: sude <sude@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 18:55:50 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/27 01:50:18 by sude             ###   ########.fr       */
+/*   Updated: 2025/03/27 13:53:36 by sude             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_sub_process(char **argv)
+t_stack	*add_split(char **argv)
 {
 	t_stack	*a;
 	char	**tmp;
@@ -43,7 +43,7 @@ t_stack *add_args(int argc, char **argv)
 	if (argc < 2)
 		ft_error();
 	if (argc == 2)
-		a = ft_sub_process(argv);
+		a = add_split(argv);
 	else
 	{
 		while (i < argc)
