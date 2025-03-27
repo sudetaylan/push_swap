@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_op.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: staylan <staylan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sude <sude@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:03:46 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/25 19:03:49 by staylan          ###   ########.fr       */
+/*   Updated: 2025/03/27 04:07:24 by sude             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,14 @@
 
 void    sa(t_stack **a, int k)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
-	if (!*a)
+	if (!*a || !((*a)->next))
 		return ;
-	if((*a)->next)
-	{
-		tmp = *a; // tmp head node u işaret edicek
-		*a = (*a)->next; // head node artık head node dan sonraki oldu
-		tmp->next = (*a)->next; //önceki head node un nexti artık eskiden 2. olanın nexti olmalı
-		(*a)->next = tmp; //yeni head node un sonraki elemanı ilk head node olmalı, onu da tmp de tutuyoruz
-	}
-	else
-		return ;
+	tmp = *a;// tmp head node u işaret edicek
+	*a = (*a)->next;// head node artık head node dan sonraki oldu
+	tmp->next = (*a)->next;//önceki head node un nexti artık eskiden 2. olanın nexti olmalı
+	(*a)->next = tmp;  //yeni head node un sonraki elemanı ilk head node olmalı, onu da tmp de tutuyoruz
 	if (k == 0)
 		write(1, "sa\n", 3);
 }

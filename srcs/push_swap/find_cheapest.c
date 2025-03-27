@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void find_index(t_stack **stack)
+void put_index(t_stack **stack)
 {
     t_stack *tmp;
     int i;
@@ -16,6 +16,7 @@ void find_index(t_stack **stack)
         i++;
     }
 }
+
 void cost(t_stack **stack1, t_stack **stack2)
 {
     t_stack *tmp;
@@ -23,17 +24,17 @@ void cost(t_stack **stack1, t_stack **stack2)
     tmp = *stack1;
     while (tmp)
     {
-        if (tmp->index < (list_size(stack1) / 2))
+        if (tmp->index < (list_size(*stack1) / 2))
             tmp->cost = tmp->index;
         else
-            tmp->cost = (list_size(stack1) - tmp->index);
-        if (tmp->target->index < (list_size(stack2) / 2))
+            tmp->cost = (list_size(*stack1) - tmp->index);
+        if (tmp->target->index < (list_size(*stack2) / 2))
             tmp->cost += tmp->target->index;
         else
-            tmp->cost += (list_size(stack2) - tmp->target->index);
         tmp = tmp->next;
     }
 }
+
 t_stack *find_cheapest(t_stack **stack)
 {
     t_stack *tmp;

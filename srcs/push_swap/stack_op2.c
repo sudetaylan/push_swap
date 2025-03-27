@@ -6,33 +6,39 @@
 /*   By: sude <sude@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:03:24 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/26 13:48:08 by sude             ###   ########.fr       */
+/*   Updated: 2025/03/27 04:24:11 by sude             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ra(t_stack **a, int k)
+void	ra(t_stack **a, int k)
 {
-    t_stack *tmp;
+	t_stack	*tmp;
 
-    if (!*a || !(*a)->next)
-        return ;
-    tmp = last_node(a); // tmp ye son node un adresini verdik
-    tmp->next = *a; // sonuncunun sonrasna a nın başı geleceğ,i için bu işlem yaptık
-    *a = (*a)->next;// stackin başı artık 2. elemanı gösteriyor
-    (*a)->next = NULL; //en sona a nın en baştakı nodeunu eklemiştik onun nextini 2. ye işaret ederken null a çevirdik
+	if (!*a || !(*a)->next)
+		return ;
+	tmp = *a;
+	*a = last_node(*a);
+	(*a)->next = tmp;
+	*a = tmp->next;
+	tmp->next = NULL;
+	if (k == 0)
+		write(1, "ra\n", 3);
 }
 void    rb(t_stack **b, int k)
 {
-    t_stack *tmp;
+	t_stack	*tmp;
 
-    if (!*b || !(*b)->next)
-        return ;
-    tmp = last_node(b); // tmp ye son node un adresini verdik
-    tmp->next = *b; // sonuncunun sonrasna b nın başı geleceğ,i için bu işlem yaptık
-    *b = (*b)->next;// stackin başı artık 2. elemanı gösteriyor
-    (*b)->next = NULL; //en sona b nın en baştakı nodeunu eklemiştik onun nextini 2. ye işaret ederken nulla çevirdik
+	if (!*b || !(*b)->next)
+		return ;
+	tmp = *b;
+	*b = last_node(*b);
+	(*b)->next = tmp;
+	*b = tmp->next;
+	tmp->next = NULL;
+	if (k == 0)
+		write(1, "rb\n", 3);
 }
 void    r_rr(t_stack **a, t_stack **b, int k, int reverse)
 {

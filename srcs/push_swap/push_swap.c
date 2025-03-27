@@ -6,55 +6,69 @@
 /*   By: sude <sude@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 18:55:50 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/26 13:40:17 by sude             ###   ########.fr       */
+/*   Updated: 2025/03/27 01:50:18 by sude             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *add_args(char **argv, int flag)
+t_stack	*ft_sub_process(char **argv)
 {
-    t_stack *a;
-    char **split_args;
-    int i;
-    int num;
+	t_stack	*a;
+	char	**tmp;
+	int		i;
+	int		j;
 
-    i = 0;
-    a = NULL;
-    if (flag == 2)
-        split_args = ft_split(argv[1], 32);
-    else
-        split_args = argv;
-    while (split_args[i])
-    {
-        num = ft_atoi2(split_args[i]);
-        add_back(&a, new_stack(num));
-        i++;
-    }
-    if(flag == 2)
-    {
-        free_str(split_args);
-        free(split_args);        
-    }
-    return (a);
+	a = NULL;
+	i = 0;
+	tmp = ft_split(argv[1], 32);
+	while (tmp[i])
+	{
+		j = ft_atol(tmp[i]);
+		add_back(&a, new_stack(j));
+		i++;
+	}
+	free_str(tmp);
+	free(tmp);
+	return (a);
+}
+t_stack *add_args(int argc, char **argv)
+{
+	t_stack	*a;
+	int		i;
+	int		j;
+
+	i = 1;
+	a = NULL;
+	if (argc < 2)
+		ft_error();
+	if (argc == 2)
+		a = ft_sub_process(argv);
+	else
+	{
+		while (i < argc)
+		{
+			j = ft_atol(argv[i]);
+			add_back(&a, new_stack(j));
+			i++;
+		}
+	}
+	return (a);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_stack *a;
-    int num;
+	t_stack	*a;
 
-    a = NULL;
-    if(argc < 2 || argv[1] == NULL)
-        ft_error();
-    a = add_args(argv, argc);
-    if (!a || is_duplicated(a))
+	a = add_args(argc, argv);
+	if (!a || is_duplicated(a))
 	{
 		free_stack(&a);
 		ft_error();
 	}
 	if (!is_sorted(a))
-		sort_stack(&a);
+	    sort_list(&a);
 	free_stack(&a);
 	return (0);
 }
+
