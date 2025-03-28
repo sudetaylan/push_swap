@@ -6,7 +6,7 @@
 /*   By: staylan <staylan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 22:44:06 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/27 22:44:24 by staylan          ###   ########.fr       */
+/*   Updated: 2025/03/28 05:56:05 by staylan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,24 @@ void	target_a(t_stack **stack_a, t_stack **stack_b)
 	tmp_a = *stack_a;
 	while (tmp_a)
 	{
-		small_target = INT_MIN;
+		small_target = INT_MAX;
 		tmp_b = *stack_b;
 		while (tmp_b)
 		{
-			if (tmp_a->nbr > tmp_b->nbr
-				&& small_target < tmp_b->nbr)
+			if (tmp_a->nbr < tmp_b->nbr
+				&& small_target > tmp_b->nbr)
 			{
 				small_target = tmp_b->nbr;
 				tmp_a->target = tmp_b;
 			}
 			tmp_b = tmp_b->next;
 		}
-		if (small_target == INT_MIN)
+		if (small_target == INT_MAX)
 			tmp_a->target = find_highest(stack_b);
 		tmp_a = tmp_a->next;
 	}
 }
+
 
 void	target_b(t_stack **stack_a, t_stack **stack_b)
 {
@@ -52,19 +53,19 @@ void	target_b(t_stack **stack_a, t_stack **stack_b)
 	tmp_b = *stack_b;
 	while (tmp_b)
 	{
-		big_target = INT_MAX;
+		big_target = INT_MIN;
 		tmp_a = *stack_a;
 		while (tmp_a)
 		{
-			if (tmp_b->nbr < tmp_a->nbr
-				&& big_target > tmp_a->nbr)
+			if (tmp_b->nbr > tmp_a->nbr
+				&& big_target < tmp_a->nbr)
 			{
 				big_target = tmp_a->nbr;
 				tmp_b->target = tmp_a;
 			}
 			tmp_a = tmp_a->next;
 		}
-		if (big_target == INT_MAX)
+		if (big_target == INT_MIN)
 			tmp_b->target = find_smallest(stack_a);
 		tmp_b = tmp_b->next;
 	}
