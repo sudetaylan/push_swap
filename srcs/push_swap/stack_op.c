@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_op.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sude <sude@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: staylan <staylan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:03:46 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/27 19:11:06 by sude             ###   ########.fr       */
+/*   Updated: 2025/03/27 23:10:40 by staylan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void    sa(t_stack **a, int k)
 	if (k == 0)
 		write(1, "sa\n", 3);
 }
+
 void	sb(t_stack **b, int k)
 {
 	t_stack *tmp;
@@ -43,6 +44,7 @@ void	sb(t_stack **b, int k)
 	if (k == 0)
 		write(1, "sb\n", 3);
 }
+
 void	ss(t_stack **a, t_stack **b, int k)
 {
 	sa(a, 1);
@@ -64,6 +66,7 @@ void	pa(t_stack **a, t_stack **b, int k)
 	if(k == 0)
 		write(1, "pa\n", 3);
 }
+
 void	pb(t_stack **a, t_stack **b, int k)
 {
 	t_stack *tmp;

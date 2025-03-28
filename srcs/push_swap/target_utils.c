@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   target_utils.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: staylan <staylan@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/27 22:43:47 by staylan           #+#    #+#             */
+/*   Updated: 2025/03/27 22:43:51 by staylan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_stack	*find_smallest(t_stack **stack)
@@ -28,7 +40,7 @@ t_stack	*find_highest(t_stack **stack)
 {
 	t_stack	*tmp;
 	t_stack	*highest;
-	int	     big;
+	int		big;
 
 	highest = *stack;
 	big = (*stack)->nbr;

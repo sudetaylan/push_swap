@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   targets.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: staylan <staylan@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/27 22:44:06 by staylan           #+#    #+#             */
+/*   Updated: 2025/03/27 22:44:24 by staylan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	target_a(t_stack **stack_a, t_stack **stack_b)
@@ -35,7 +47,7 @@ void	target_b(t_stack **stack_a, t_stack **stack_b)
 	t_stack	*tmp_b;
 	int		big_target;
 
-	if (!*stack_a|| !*stack_b)
+	if (!*stack_a || !*stack_b)
 		return ;
 	tmp_b = *stack_b;
 	while (tmp_b)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sude <sude@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: staylan <staylan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 18:55:50 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/27 13:53:36 by sude             ###   ########.fr       */
+/*   Updated: 2025/03/27 23:12:26 by staylan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ t_stack	*add_split(char **argv)
 	free(tmp);
 	return (a);
 }
-t_stack *add_args(int argc, char **argv)
+
+t_stack	*add_args(int argc, char **argv)
 {
 	t_stack	*a;
 	int		i;
@@ -67,8 +68,7 @@ int	main(int argc, char **argv)
 		ft_error();
 	}
 	if (!is_sorted(a))
-	    sort_list(&a);
+		sort_list(&a);
 	free_stack(&a);
 	return (0);
 }
-

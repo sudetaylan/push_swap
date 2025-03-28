@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   nbr_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: staylan <staylan@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/27 22:20:15 by staylan           #+#    #+#             */
+/*   Updated: 2025/03/27 23:10:40 by staylan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_atol(const char *str)
@@ -12,8 +24,8 @@ int	ft_atol(const char *str)
 		str++;
 	if (*str == '-' || *str == '+')
 	{
-        if(*str == '-')
-		    sign = -1;
+		if (*str == '-')
+			sign = -1;
 		str++;
 	}
 	while (*str)
@@ -27,4 +39,3 @@ int	ft_atol(const char *str)
 		ft_error();
 	return (sign * result);
 }
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_op2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sude <sude@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: staylan <staylan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:03:24 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/27 04:24:11 by sude             ###   ########.fr       */
+/*   Updated: 2025/03/28 04:01:11 by staylan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ra(t_stack **a, int k)
 	if (k == 0)
 		write(1, "ra\n", 3);
 }
+
 void    rb(t_stack **b, int k)
 {
 	t_stack	*tmp;
@@ -40,6 +41,7 @@ void    rb(t_stack **b, int k)
 	if (k == 0)
 		write(1, "rb\n", 3);
 }
+
 void    r_rr(t_stack **a, t_stack **b, int k, int reverse)
 {
     if(reverse == 0)
@@ -54,10 +56,11 @@ void    r_rr(t_stack **a, t_stack **b, int k, int reverse)
         rra(a, 1);
         rrb(b, 1);
         if (k == 0)
-            write(1, "rrr\n", 3);
+            write(1, "rrr\n", 4);
     }
 
 }
+
 void    rra(t_stack **a, int k)
 {
 	t_stack	*tmp;
