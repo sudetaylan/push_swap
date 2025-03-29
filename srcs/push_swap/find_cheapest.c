@@ -48,9 +48,7 @@ t_stack *find_cheapest(t_stack **stack, t_stack **to)
     t_stack *tmp;
     t_stack *cheapest;
 
-    printf("DEBUG: cost fonksiyonuna girilecekkkk.\n");
     cost(stack, to);
-    printf("DEBUG: cost fonksiyonuna girildi.\n");
     cheapest = *stack;
     tmp = (*stack)->next;
     while (tmp)

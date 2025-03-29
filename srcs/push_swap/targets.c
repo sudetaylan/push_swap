@@ -6,7 +6,7 @@
 /*   By: sude <sude@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 22:44:06 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/29 03:26:11 by sude             ###   ########.fr       */
+/*   Updated: 2025/03/29 04:11:07 by sude             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	target_in_a(t_stack **stack_a, t_stack **stack_b)
 			tmp_b->target = find_smallest(stack_a);
 		tmp_b = tmp_b->next;
 	}
-	printf("DEBUG: target_in_a fonksiyonuna girildi.\n");
 }
 
 void	target_in_b(t_stack **stack_a, t_stack **stack_b)

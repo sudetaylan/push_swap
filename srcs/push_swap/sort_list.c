@@ -6,7 +6,7 @@
 /*   By: sude <sude@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 22:41:19 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/29 03:54:41 by sude             ###   ########.fr       */
+/*   Updated: 2025/03/29 04:11:02 by sude             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ t_stack	**push_to_a(t_stack **stack_a, t_stack **stack_b)
 	int i = 0;
 	while (*stack_b && i < 2)
 	{
-		printf("DEBUG: target_in_a fonksiyonuna çağrı.\n");
 		target_in_a(stack_a, stack_b);
-		printf("DEBUG: find_cheapest çağrıldı.\n");
 		cheapest = find_cheapest(stack_b, stack_a);
 		if (cheapest->index <= (list_size(*stack_b) / 2)
 			&& cheapest->target->index <= (list_size(*stack_a) / 2))
@@ -45,10 +43,8 @@ void	sort_b_till3(t_stack **stack_a, t_stack **stack_b)
 
 	while (list_size(*stack_a) > 3 && !is_sorted(*stack_a))
 	{
-		printf("DEBUG: target_in_B fonksiyonuna çağrı.\n");
 		target_in_b(stack_a, stack_b);
 		cheapest = find_cheapest(stack_a, stack_b);
-		printf("DEBUG: find_cheapest çağrıldı.\n");
 		if (cheapest->index <= (list_size(*stack_a) / 2)
 			&& cheapest->target->index <= (list_size(*stack_b) / 2))
 			do_rarb(stack_a, stack_b, cheapest->nbr, 'a');
@@ -73,7 +69,6 @@ t_stack	*sort_b(t_stack **stack_a)
 	if (list_size(*stack_a) > 3 && !is_sorted(*stack_a))
 		pb(stack_a, &stack_b, 0);
 	if (list_size(*stack_a) > 3 && !is_sorted(*stack_a)){
-		printf("DEBUG: sort_b_till3 fonksiyonu çağırıldı.\n");
 		sort_b_till3(stack_a, &stack_b);
 	}
 	if (!is_sorted(*stack_a))
@@ -91,9 +86,7 @@ void	sort_list(t_stack **stack_a)
 		sa(stack_a, 0);
 	else
 	{
-		printf("DEBUG: sort_b fonksiyonu çağırılıyor");
 		stack_b = sort_b(stack_a);
-		printf("DEBUG: sort_b fonksiyonu bitti push_to_a çağırılıyor");
 		stack_a = push_to_a(stack_a, &stack_b);
 		put_index(stack_a);
 		i = find_min(*stack_a);
