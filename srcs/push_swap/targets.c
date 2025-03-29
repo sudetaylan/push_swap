@@ -3,70 +3,70 @@
 /*                                                        :::      ::::::::   */
 /*   targets.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: staylan <staylan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sude <sude@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 22:44:06 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/28 05:56:05 by staylan          ###   ########.fr       */
+/*   Updated: 2025/03/29 03:26:11 by sude             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	target_a(t_stack **stack_a, t_stack **stack_b)
-{
+void	target_in_a(t_stack **stack_a, t_stack **stack_b)
+{//b nin a daki hedefini bulacak
 	t_stack	*tmp_a;
 	t_stack	*tmp_b;
 	int		small_target;
 
 	if (!*stack_a || !*stack_b)
 		return ;
-	tmp_a = *stack_a;
-	while (tmp_a)
+	tmp_b = *stack_b;
+	while (tmp_b)
 	{
 		small_target = INT_MAX;
-		tmp_b = *stack_b;
-		while (tmp_b)
+		tmp_a = *stack_a;
+		while (tmp_a)
 		{
-			if (tmp_a->nbr < tmp_b->nbr
-				&& small_target > tmp_b->nbr)
+			if (tmp_a->nbr > tmp_b->nbr
+				&& small_target > tmp_a->nbr)
 			{
-				small_target = tmp_b->nbr;
-				tmp_a->target = tmp_b;
+				small_target = tmp_a->nbr;
+				tmp_b->target = tmp_a;
 			}
-			tmp_b = tmp_b->next;
+			tmp_a = tmp_a->next;
 		}
 		if (small_target == INT_MAX)
-			tmp_a->target = find_highest(stack_b);
-		tmp_a = tmp_a->next;
+			tmp_b->target = find_smallest(stack_a);
+		tmp_b = tmp_b->next;
 	}
+	printf("DEBUG: target_in_a fonksiyonuna girildi.\n");
 }
 
-
-void	target_b(t_stack **stack_a, t_stack **stack_b)
-{
+void	target_in_b(t_stack **stack_a, t_stack **stack_b)
+{//a nın b deki hedefi bulunacak
 	t_stack	*tmp_a;
 	t_stack	*tmp_b;
 	int		big_target;
 
 	if (!*stack_a || !*stack_b)
 		return ;
-	tmp_b = *stack_b;
-	while (tmp_b)
+	tmp_a = *stack_a;
+	while (tmp_a)
 	{
 		big_target = INT_MIN;
-		tmp_a = *stack_a;
-		while (tmp_a)
+		tmp_b = *stack_b;
+		while (tmp_b)
 		{
-			if (tmp_b->nbr > tmp_a->nbr
-				&& big_target < tmp_a->nbr)
+			if (tmp_a->nbr > tmp_b->nbr
+				&& big_target < tmp_b->nbr)
 			{
-				big_target = tmp_a->nbr;
-				tmp_b->target = tmp_a;
+				big_target = tmp_b->nbr;
+				tmp_a->target = tmp_b;
 			}
-			tmp_a = tmp_a->next;
+			tmp_b = tmp_b->next;
 		}
 		if (big_target == INT_MIN)
-			tmp_b->target = find_smallest(stack_a);
-		tmp_b = tmp_b->next;
+			tmp_a->target = find_highest(stack_b);
+		tmp_a = tmp_a->next;
 	}
 }

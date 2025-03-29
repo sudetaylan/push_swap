@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: staylan <staylan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sude <sude@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 19:07:49 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/28 03:35:50 by staylan          ###   ########.fr       */
+/*   Updated: 2025/03/29 01:07:21 by sude             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,12 @@ t_stack	*find_smallest(t_stack **stack);
 t_stack	*find_highest(t_stack **stack);
 
 //target
-void	target_a(t_stack **stack_a, t_stack **stack_b);
-void	target_b(t_stack **stack_a, t_stack **stack_b);
+void	target_in_a(t_stack **stack_a, t_stack **stack_b);
+void	target_in_b(t_stack **stack_a, t_stack **stack_b);
 
-t_stack	**sort_a(t_stack **stack_a, t_stack **stack_b);
+t_stack	**push_to_a(t_stack **stack_a, t_stack **stack_b);
 t_stack	*sort_b(t_stack **stack_a);
-void	sort_till3_b(t_stack **stack_a, t_stack **stack_b);
+void	sort_b_till3(t_stack **stack_a, t_stack **stack_b);
 void	sort_list(t_stack **stack_a);
 void	sort_three(t_stack **stack_a);
 int		find_max(t_stack *a);

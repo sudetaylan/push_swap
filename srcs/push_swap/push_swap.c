@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: staylan <staylan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sude <sude@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 18:55:50 by staylan           #+#    #+#             */
-/*   Updated: 2025/03/27 23:12:26 by staylan          ###   ########.fr       */
+/*   Updated: 2025/03/29 03:50:26 by sude             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,11 @@ int	main(int argc, char **argv)
 		ft_error();
 	}
 	if (!is_sorted(a))
+	{
+		printf("%s", "fknjdsf");
 		sort_list(&a);
+	}
+
 	free_stack(&a);
 	return (0);
 }
