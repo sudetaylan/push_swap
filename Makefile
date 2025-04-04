@@ -1,52 +1,44 @@
-NAME = push_swap
-CC = gcc
-RM = rm -f
-FLAGS = -Wall -Wextra -Werror
-LIBFTDIR = srcs/libft/
-OBJ_DIR = obj/
-BONUS = checker
-SRC_DIR = srcs/
+SRCS	=	push_swap.c \
+			cheapest.c \
+			checker.c \
+			free_end.c \
+			init_nodes.c \
+			operations.c \
+			operations2.c \
+			rotate_push.c \
+			sort_big.c \
+			sort_small.c \
+			stack_utils.c \
+			target.c
 
-SRC_1 = srcs/push_swap/push_swap.c \
+OBJS	= $(SRCS:.c=.o)
 
-SRC_2 =	srcs/push_swap/error.c \
-		srcs/push_swap/find_cheapest.c \
-		srcs/push_swap/free.c \
-		srcs/push_swap/nbr_utils.c \
-		srcs/push_swap/new_stack.c \
-		srcs/push_swap/op_utils.c \
-		srcs/push_swap/rotate_push.c \
-		srcs/push_swap/sort_list.c \
-		srcs/push_swap/sort_utils.c \
-		srcs/push_swap/stack_op.c \
-		srcs/push_swap/stack_op2.c \
-		srcs/push_swap/target_utils.c \
-		srcs/push_swap/targets.c
+CC		= gcc
 
-OBJ_1 = ${SRC_1:.c=.o}
-OBJ_2 = ${SRC_2:.c=.o}
+CFLAGS	= -Wall -Wextra -Werror
 
+NAME	= push_swap
 
-INCLUDE = -L ./srcs/libft -lft
+LIBFT	= libft/libft.a
 
-.c.o:
-	${CC} -c $< -o ${<:.c=.o}
+all: $(NAME)
 
-${NAME}: ${OBJ_1} ${OBJ_2}
-	make -C $(LIBFTDIR)
-	${CC} ${FLAGS} ${OBJ_1} ${OBJ_2} -o ${NAME} ${INCLUDE}
+$(NAME): $(OBJS) $(LIBFT)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-
-all: ${NAME}
+$(LIBFT):
+	make -C libft/
 
 clean:
-	${RM} ${OBJ_1} ${OBJ_2} ${NAME}
-	@cd $(LIBFTDIR) && $(MAKE) clean
+	@echo "[DELETING...]"
+	rm -rf $(OBJS)
+	make clean -C libft
+	@echo "[DELETED]"
 
 fclean: clean
-	${RM} ${NAME}
-	@cd $(LIBFTDIR) && $(MAKE) fclean
+	rm -rf $(NAME)
+	make fclean -C libft
 
-re: clean all
+re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all fclean clean re
